@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <!-- Angular JS -->
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.0.3.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+
+    <title>Pohutukawa</title>
+  </head>
+
+  <body ng-controller="myCtrl">
+
+    <!-- Home Page -->
+    <div id="homePage" ng-show="showHome">
+      <div id="home_nav">
+        <a id="myHome" class="home_home home_active" ng-href="#homePage" ng-click="click_home_home()">HOME</a>
+
+        <a id="myAbout" class="home_about home_not_active" ng-href="#about_content" ng-click="click_home_about()">ABOUT</a>
+
+        <a id="home_account">SIGN IN<span class="tooltiptext">Coming Soon!</span></a>
+      </div>
+
+      <img id="home_bg" src="https://media-public.canva.com/MABKNHkr_0o/1/screen_2x.jpg" alt="">
+    
+      <div id="home_content">
+        <div class="homeTitle">
+          <h1>POHUTUKAWA</h1>
+          <h1>ONLINE</h1>
+        </div>
+        
+        <form class="searchForm">
+          <button type="submit" id="home_search" class="material-icons-outlined" ng-click="clickSearch(userSearch)">search</button>
+
+          <input id="search_input" type="text" ng-model="userSearch" placeholder="Search research on mis-dis-information..." autocomplete="off">
+
+          <button id="home_clear" class="material-icons-outlined" ng-click="clickClear()">clear</button>
+        </form>
+      </div>
+
+      <div id="about_content">
+        <div id="about_heading">
+          <h1>What is Pohutukawa</h1>
+          <div id="about_desc">
+            <p>Pohutukawa is a research repository of research papers specifically on mis-dis-information (MDI) that can be used by researchers, industry, and the public sector.</p>
+            <ul>
+              <li>
+                Misinformation is false information that is spread, regardless of whether there is intent to mislead.
+              </li>
+
+              <li>
+                Disinformation is deliberately misleading or biased information, manipulated narrative or facts; propaganda.
+              </li>
+            </ul>
+
+            <p>The data was retrieved using API keys from SerpApi, for Google Scholar results including "misinformation" and "disinformation"</p>
+            <ul>
+              <li>
+                Our current database has 1676 results.
+              </li>
+
+              <li>
+                Only 1228 of these were used for this prototype, due to data processing limits on Plunker. These results range from 1967 to 2022.
+              </li>
+              <li>
+                Latest results from Google Scholar can be retrieved by using a paid plan with SerpApi.
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+          <p>Developed for a INFO320 project by Danielle Coe, Olly Sadler, and Eunie Choi.
+            &nbsp;
+            Enquiries: 
+          <a href="mailto:teampohutukawa@gmail.com">teampohutukawa@gmail.com</a>
+          </p>
+        </div>
+
+      </div>
+
+      
+
+    </div>
+    
+
+
+
+
+
+
+    <!-- Navigation bar -->
+    <div id="topnav" ng-show="showNavBar" class="topnav_height">
+        <div class="icon">
+          <p ng-click="clickHome()">POHUTUKAWA
+          </p>
+        </div>
+        
+        <form class="searchForm">
+          <button type="submit" id="nav_search" class="material-icons-outlined" ng-click="clickSearch(userSearch)">search</button>
+
+          <input id="nav_input" type="text" ng-model="userSearch" value="{{userSearch}}" autocomplete="off" placeholder="Search anything">
+
+          <button id="nav_clear" class="material-icons-outlined" ng-click="clickClear()">clear</button>
+        </form>
+
+        <!-- Advanced Search -->
+        <div id="adv_search">
+          <p ng-click="toggle_adv()">
+            Advanced
+            <span id="adv_down" ng-show="show_adv_down" class="material-icons-outlined">arrow_drop_down</span>
+            <span id="adv_up" ng-show="show_adv_up" class="material-icons-outlined">arrow_drop_up</span>
+          </p>          
+        </div>
+
+        <div id="adv_search_content" ng-show="show_adv_search">
+          <form class="adv_searchForm">
+            <table id="adv_searchForm_table">
+              <tr>
+                <td class="search_filters">
+                  <p id="adv_heading">Search filters</p>
+
+                  <!-- 1st filter -->
+                  <div id="adv_1">
+                    <select id="adv_field_1" ng-init="search_field_1 ='Any field'" ng-model="search_field_1">
+                      <option value="Any field">Any field</option>
+                      <option value="Title">Title</option>
+                      <option value="Author">Author</option>
+                      <option value="Snippet">Snippet</option>
+                    </select>
+
+                    <select id="adv_option_1" ng-init="search_opt_1 ='contains'" ng-model="search_opt_1">
+                      <option value="contains">contains</option>
+                      <option value="is (exact)">is (exact)</option>
+                      <option value='starts with'>starts with</option>
+                    </select>
+
+                    <input id="adv_input_1" type="text" ng-model="search_input_1" autocomplete="off" placeholder="Enter a search term">
+                  </div>
+
+                  <!-- 2nd filter-->
+                  <div id="adv_2">
+                    <select id="adv_comparator_2" ng-init="search_comparator_2 ='AND'" ng-model="search_comparator_2">
+                      <option value="AND" selected>AND</option>
+                      <option value="OR" disabled>OR</option>
+                      <option value="NOT" disabled>NOT</option>
+                    </select>
+
+                    <select id="adv_field_2" ng-init="search_field_2 ='Any field'" ng-model="search_field_2">
+                      <option value="Any field">Any field</option>
+                      <option value="Title" disabled>Title</option>
+                      <option value="Author" disabled>Author</option>
+                      <option value="Snippet" disabled>Snippet</option>
+                    </select>
+
+                    <select id="adv_option_2" ng-init="search_opt_2 ='starts with'" ng-model="search_opt_2">
+                      <option value="contains" disabled>contains</option>
+                      <option value="is (exact)" disabled>is (exact)</option>
+                      <option value="starts with">starts with</option>
+                    </select>
+
+                    <input id="adv_input_2" type="text" ng-model="search_input_2" autocomplete="off" placeholder="Enter a search term" readonly>
+                    <span id="adv_tooltip" class="tooltiptext">Coming Soon!</span>
+                    
+                  </div>
+                </td>
+
+                <td class="search_years">
+                  <!-- Years filter -->
+                  <p id="adv_year_start_heading">Start Year:</p>
+                  <div id="adv_year_1">
+                    <input id="adv_year_start" type="text" ng-model="adv_year_start_model" autocomplete="off" placeholder="Year">
+                  </div>
+
+                  <p id="adv_year_end_heading">End Year:</p>
+                  <div id="adv_year_2">
+                    <input id="adv_year_end" type="text" ng-model="adv_year_end_model" autocomplete="off" placeholder="Year">
+                  </div>
+                </td>
+              </tr>
+
+              <tr id="adv_search_footer">
+                <td class="adv_search_final">
+                  <div ng-if="search_input_1">
+
+                    <div id="adv_search_sentence_1">
+                      <span id="adv_search_return" class="material-icons-outlined">keyboard_return</span>
+                      <span>{{search_field_1}} {{search_opt_1}} {{search_input_1}}</span>
+                    </div>
+
+                    <div id="adv_search_sentence_2" ng-if="search_input_2">
+                      {{search_comparator_2}} {{search_field_2}} {{search_opt_2}} {{search_input_2}}
+                    </div>
+
+                  </div>
+                </td>
+
+                <!-- advanced search button -->
+                <td class="adv_search_button">
+                  <div>
+                    <button type="submit" id="nav_search_adv_button" ng-click="clickSearch_adv(search_field_1, search_opt_1, search_input_1, adv_year_start_model, adv_year_end_model)">
+                      <span id="nav_search_adv" class="material-icons-outlined">search</span>
+                      <span id="adv_search_button_word">SEARCH</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+          </form>
+        </div>
+
+        <!-- account things -->
+        <div id="acc_things">
+
+          <div id="results_back">
+            <span id="go_back" class="material-icons-outlined" ng-click="click_back()">arrow_back</span>
+          </div>
+
+          <div id="results_favs">
+            
+            <span id="favs_heart" class="material-icons-outlined" ng-click="click_favs()">favorite</span>
+            <div id="favs_count">
+              <p ng-if="my_favs.length>0" ng-click="click_favs()">{{my_favs.length}}</p>
+            </div>
+          </div>
+          
+
+          <div id="results_account">
+            <span id="account_icon" class="material-icons-outlined">person_outline</span>
+            <span class="tooltiptext">Coming Soon!</span>
+          </div>
+
+        </div>
+
+    </div>
+    
+    
+
+
+
+    <!-- Results Page -->
+    <p id="searchFeedback" ng-show="showFeedback" class="resultsPage_top">{{searchFeedback}}</p>
+
+    <div id="resultsPage" ng-show="showResults" class="resultsPage_top"> 
+
+      <!-- Filters -->
+      <div class="filters" id="myFilters">
+
+        <label for="sortBy">Sort by</label>
+        <br>
+        <select id="sortBy" ng-init="sortbyModel ='-year'" ng-model="sortbyModel" ng-change="reset_currentPage()">
+          <option value="title">Title</option>
+          <option value="authors">Author</option>
+          <option value="-year">Date-newest</option>
+          <option value="year">Date-oldest</option>
+        </select>
+       
+      </div> 
+
+      <!-- Results -->
+      <div class="results" ng-show="showResults">
+        {{totalItems}} Results
+        <span id="ResultsPerPageLabel">
+          Show
+          <select ng-init="viewby ='10'" ng-model="viewby" ng-change="setItemsPerPage(viewby)">
+            <option>5</option>
+            <option>10</option>
+            <option>15</option>
+            <option>20</option>
+          </select>
+        </span>
+
+        <ul class="resultsList">
+          <li ng-repeat="result in filteredSearch | orderBy:sortbyModel |limitTo:itemsPerPage:itemsPerPage*(currentPage-1)">
+
+            <!-- favourites -->
+            <span id="heart" class="material-icons-outlined" ng-if="result.heart_filled === false" ng-click="click_heart(filteredSearch.indexOf(result))">favorite_border</span>
+            <span id="fill_heart" class="material-icons-outlined" ng-if="result.heart_filled === true" ng-click="click_heart(filteredSearch.indexOf(result))">favorite</span>
+
+            <!-- results -->
+            <p class="title" ng-click="clickLink(filteredSearch.indexOf(result))">{{result.title}}</p>
+
+            <p class="publ"> {{result.publ_info_summary}}</p>
+
+            <p class="snippet">
+              <span class="material-icons-round" id="start">format_quote</span>
+              {{result.snippet}}
+              <span class="material-icons-round">format_quote</span>
+            </p>
+
+            <p class="cited">Cited by {{result.cited_by_total}}</p>
+          </li>
+          
+        </ul>
+
+      </div>
+    </div> 
+
+
+
+    <!-- Pagination -->
+    <div class="pages" ng-show="showPagination">
+      <ul uib-pagination class="pagination-lg" total-items="totalItems" ng-model="currentPage"
+      ng-change="pageChanged()" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" items-per-page="itemsPerPage" max-size="maxSize" rotate="false" boundary-links="true"></ul>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>Developed for a INFO320 project by Danielle Coe, Olly Sadler, and Eunie Choi.
+          &nbsp;
+          Enquiries: 
+        <a href="mailto:teampohutukawa@gmail.com">teampohutukawa@gmail.com</a>
+        </p>
+      </div>
+    </div>
+
+
+    
+
+    
+    
+  </body>
+
+</html>

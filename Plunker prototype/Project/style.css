@@ -1,0 +1,687 @@
+/* Add your styles here */
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Poppins', Verdana, Arial;
+  color: #474747;
+  background-color: #ddd;
+}
+
+select{
+  outline: none;
+}
+
+
+/* footer */
+.footer{
+  background-color: #474747;
+  color: white;
+  padding-top: 5px;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+}
+.footer a{
+  color: #c5ddc6;
+}
+/* Home Page - bg image*/
+#homePage img{
+  width: 100%;
+  height: 100%;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+}
+#homePage:after {
+  position: fixed;
+  content: " ";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#homePage #home_content{
+  position: absolute;
+  top: 0;
+  margin-top: 10%;
+  margin-left: 10%;
+  width: 80%;
+  padding: 10px;
+  z-index: 1;
+}
+/* Home Page Title */
+.homeTitle h1{
+  text-align: center;
+  font-size: 100px;
+  font-weight: 800;
+  color: #cee3cf;
+}
+
+/* Home Page - search */
+#homePage #home_content form.searchForm{
+  background-color: #cee3cf;
+  margin: auto;
+  margin-top: 50px;
+  width: 90%;
+  height: 80px;
+}
+
+#home_search{
+  margin-left: 15%;
+  margin-top: 25px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+#home_clear{
+  float: right;
+  margin-top: 25px;
+  margin-right: 15%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+#home_content form.searchForm input[type=text] {
+  position: absolute;
+  margin-top: 25px;
+  width: 50%;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+
+}
+
+
+
+/* home - nav bar */
+#home_nav{
+  position: fixed;
+  width:100%;
+  top: 0;
+  height: 80px;
+  z-index: 999;
+}
+.home_home, .home_about{
+  position: absolute;
+  top: 0;
+  margin-top: 25px;
+  font-weight: bold;
+  font-size: 20px;
+  color: lightgray;
+}
+.home_home{
+  margin-left: 5%;
+}
+.home_about{
+  margin-left: 180px;
+}
+
+/* active on nav bar */
+.home_active{
+  color: pink;
+}
+.home_active:hover{
+  color: pink;
+  text-decoration: none;
+}
+/* not active nav bar */
+.home_not_active:hover{
+  color: white;
+  text-decoration: none;
+}
+
+
+
+
+/* home - account */
+#home_account{
+  float: right;
+  margin-top: 25px;
+  margin-right: 5%;
+  color: #cee3cf;
+  font-weight: bold;
+  font-size: 20px;
+}
+#home_account:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+/* tool tip */
+#home_account .tooltiptext{
+  visibility: hidden;
+  float: right;
+  margin-left: -100px;
+  margin-top: 25px;
+  font-size: 12px;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#home_account:hover .tooltiptext{
+  visibility: visible;
+}
+/* home - about page */
+#homePage #about_content{
+  position: absolute;
+  top: 100%;
+  margin-top: 10%;
+  width: 100%;
+  z-index: 1;
+  color: #cee3cf;
+}
+/* About page heading */
+#about_heading h1{
+  text-align: center;
+  font-size: 100px;
+  font-weight: 800;
+  margin-top: 10%;
+}
+/* about description */
+#about_desc{
+  margin-top: 5%;
+  padding-bottom: 5%;
+}
+#about_heading p{
+  text-align: center;
+  font-size: 23px;
+  margin-top: 3%;
+  width: 80%;
+  margin-left: 10%;
+  color: white;
+  font-weight: bold;
+}
+#about_heading ul{
+  list-style-position: outside;
+  margin-left: 10%;
+  width: 80%;
+}
+#about_heading li{
+  font-size: 20px;
+  width: 60%;
+  margin-left: 20%;
+  color: white;
+}
+
+
+
+
+
+/* Navigation Bar */
+#topnav{
+  width:100%;
+  display:flex;
+  top: 0;
+  position: fixed;
+  background-color: #474747;
+  border-bottom: 1px solid gray;
+  z-index: 5;
+} 
+
+/* change height on advanced search */
+.topnav_height{
+  height: 80px;
+}
+.topnav_adv_height{
+  height: 240px;
+}
+
+
+
+/* POHUTUKAWA icon */
+#topnav .icon{
+  width: 20%;
+  margin-left: 5%;
+  font-size: 25px;
+  height: 50px;
+  margin-top: 20px;
+} 
+#topnav .icon p{
+  width: 60%;
+  font-weight: bold;
+  color: #cee3cf;
+}
+#topnav .icon p:hover{
+  cursor: pointer;
+}
+
+
+/* Navbar - search */
+#topnav form.searchForm{
+  background-color: white;
+  margin-top: 20px;
+  width: 45%;
+  height: 40px;
+  border: 1px solid gray;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+#nav_search{
+  background-color: white;
+  outline: none;
+  border: none;
+  width: 5%;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+#nav_clear{
+  float: right;
+  margin-right: 5%;
+  background-color: white;
+  outline: none;
+  border: none;
+  width: 5%;
+  margin-top: 5px;
+}
+
+#topnav form.searchForm input[type=text] {
+  position: absolute;
+  width: 35%;
+  font-size: 16px;
+  background-color: white;
+  outline: none;
+  padding-left: 10px;
+  border: none;
+  margin-top: 5px;
+}
+
+/* Advanced search */
+#topnav #adv_search{
+  background-color: white;
+  margin-top: 20px;
+  width: 10%;
+  font-size: 16px;
+  border: 1px solid gray;
+  border-left: none;
+  height: 40px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+#topnav #adv_search p{
+  margin-top: 5px;
+  margin-left: 20px;
+}
+#topnav #adv_search p:hover{
+  cursor: pointer;
+}
+#adv_down, #adv_up{
+  position: absolute;
+}
+/* advanced form */
+#topnav #adv_search_content{
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 25%;
+  width: 45%;
+  height: 200px;
+  border: 1px solid gray;
+  background-color: white;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* form */
+#adv_searchForm_table{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+#adv_searchForm_table td{
+  vertical-align: top;
+}
+#adv_searchForm_table td.search_filters,
+#adv_searchForm_table td.adv_search_final{
+  width: 80%;
+}
+#adv_searchForm_table td.search_years, 
+#adv_searchForm_table td.adv_search_button{
+  width: 20%;
+}
+#adv_searchForm_table td.search_years input{
+  width: 90%;
+}
+#topnav #adv_search_content form.adv_searchForm p{
+  font-size: 12px;
+  margin-top: 10px;
+}
+#adv_1, #adv_2 {
+  margin-top: 20px;
+}
+
+#topnav #adv_search_content form.adv_searchForm select,
+#topnav #adv_search_content form.adv_searchForm input{
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-left: 3px;
+  height: 20px;
+  vertical-align: bottom;
+}
+#topnav #adv_search_content form.adv_searchForm input{
+  font-weight: bold;
+}
+#topnav #adv_search_content form.adv_searchForm select:focus,
+#topnav #adv_search_content form.adv_searchForm input:focus{
+  outline: none;
+  border-bottom: 3px solid #474747;
+}
+/* tooltip */
+#adv_tooltip{
+  visibility: hidden;
+  margin-left: -300px;
+  margin-top: 25px;
+  font-size: 12px;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#adv_2:hover #adv_tooltip{
+  visibility: visible;
+}
+
+/* return search and button*/
+#adv_search_footer{
+  height: 100%;
+}
+#adv_search_footer td #adv_search_sentence_1{
+  margin-top: 15px;
+}
+#adv_search_sentence_1 span{
+  vertical-align: middle;
+}
+#adv_search_return{
+  width: 30px;
+}
+#adv_search_sentence_2{
+  margin-top: 0px;
+  margin-left: 33px;
+}
+/* return icon */
+#adv_search_final{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  
+}
+#adv_search_return{
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+#adv_search_return{
+  color: #c5ddc6;
+  font-weight: bold;
+  font-size: 30px;
+}
+/* button */
+#nav_search_adv_button{
+  background-color: #eee;
+  border: 1px solid gray;
+  border-radius: 20px;
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+}
+#adv_search_button_word{
+  font-size: 16px;
+}
+.adv_search_button div span{
+  vertical-align: top;
+}
+
+
+
+
+/* Favourites */
+#acc_things{
+  margin-left: 5%;
+  background-color: transparent;
+  border: none;
+  margin-top: 25px;
+  color: white;
+  width: 15%;
+  height: 30px;
+
+}
+#acc_things:hover{
+  cursor: default;
+}
+#acc_things div{
+  width: 28%;
+  display: inline-block;
+  margin-top: -10px;
+  height: 100%;
+  font-size: 30px;
+}
+#go_back:hover,
+#favs_heart:hover,
+#account_icon:hover,
+#favs_count p:hover{
+  cursor: pointer;
+}
+#favs_heart{
+  color: pink;
+  width: 30px;
+}
+#favs_count{
+  height: 100%;
+  font-size: 32px;
+}
+#favs_count p{
+  width: 30px;
+  position: relative;
+  left: -41px;
+  top: -8px;  
+  text-align: center;
+  font-size: 13px;
+  color: #474747;
+  font-weight: bolder;
+}
+/* account tool tip */
+#results_account .tooltiptext{
+  visibility: hidden;
+  float: right;
+  margin-left: -70px;
+  margin-top: 30px;
+  font-size: 12px;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#results_account:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+
+/* Results Page - layout */
+
+/* results page color */
+.resultPage_color{
+  background-color: #d9d9d9;
+}
+/* change results page top for advanced search */
+.resultsPage_top{
+  margin-top: 100px;
+}
+.resultsPage_adv_top{
+  margin-top: 260px;
+}
+
+#searchFeedback{
+  margin-left: 25%;
+  color: #474747;
+}
+
+
+#resultsPage, #favsPage{
+  width:100%;
+  height:auto;
+  display:flex;
+} 
+.filters{
+  width:20%;
+  margin-left: 5%;
+  top: 50px;
+  margin-top: 30px;
+}
+
+.filters select, .filters input{
+  width:70%;
+  height: 25px;
+}
+
+.results{
+  width: 55%;
+}
+
+.pagination{
+    display: block;
+}
+
+
+select #ResultsPerPage {
+    float: right;
+}
+
+
+.results #ResultsPerPageLabel{
+    font-weight: normal;
+    margin-left:350px;
+    float: right;
+}
+ 
+
+
+/* Results Page - results list */
+ul.resultsList{
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.resultsList li{
+  padding-top: 10px;
+  padding-right: 100px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+ul.resultsList li:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#heart, #fill_heart{
+  float: left;
+  margin-left: -15px;
+}
+#fill_heart{
+  color: pink;
+}
+#heart, #fill_heart:hover{
+  cursor: pointer;
+}
+
+ul.resultsList li p{
+  margin-top: 2px;
+  margin-left: 30px;
+}
+
+
+ul.resultsList .title{
+  color: #474747;
+  font-weight: bold;
+  font-size:15px;
+}
+
+ul.resultsList .title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+ul.resultsList .publ{
+  color: darkslategray;
+}
+
+ul.resultsList .snippet{
+  font-style: italic;
+}
+
+ul.resultsList .snippet #start{
+  transform: rotate(180deg);
+}
+
+
+
+/* Results Page - Pagination */
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-left: 5%;;
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color: black;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    background-color: #eee;
+    border-color: #ddd;
+    color: black;
+}
+
+.pagination > .active > a
+{
+  color: white;
+  background-color: #474747 !Important;
+  border: solid 1px #474747 !Important;
+}
+
+
+
+
+
+
+
