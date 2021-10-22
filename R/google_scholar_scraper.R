@@ -41,7 +41,7 @@ api_keys <- c("d3a477bf55bc6de6117b1594ecb14be482d1e096f31703678a375bc7708d2ea4"
 basic_url <- "https://serpapi.com/search.json?"
 engine <- "google_scholar"
 lang <- "en"
-start <- 400
+start <- 0
 num <- "20"       #results per query
 queries <- 20     # how many queries per api key
 
